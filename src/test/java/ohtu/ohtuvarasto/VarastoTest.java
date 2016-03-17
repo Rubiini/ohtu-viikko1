@@ -94,8 +94,10 @@ public class VarastoTest {
     
     @Test
     public void otetaanNegatiivinenLuku() {
-        varasto.lisaaVarastoon(4);
+        //varasto.lisaaVarastoon(4);
         varasto.otaVarastosta(-2);
+        
+        
         
         // varastoon ei voi ottaa negatiivista lukua
         assertEquals(4, varasto.getSaldo(), vertailuTarkkuus);
