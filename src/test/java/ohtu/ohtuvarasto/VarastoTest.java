@@ -94,7 +94,7 @@ public class VarastoTest {
     
     @Test
     public void otetaanNegatiivinenLuku() {
-        //varasto.lisaaVarastoon(4);
+        varasto.lisaaVarastoon(4);
         varasto.otaVarastosta(-2);
         
         
