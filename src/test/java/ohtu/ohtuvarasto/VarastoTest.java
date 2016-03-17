@@ -66,6 +66,42 @@ public class VarastoTest {
     }
 
     @Test
+    public void lisataanLiikaa() {
+        varasto.lisaaVarastoon(11);
+        
+        // varastoon ei pysty lisäämään yli kapasiteetin
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void otetaanLiikaa() {
+        varasto.lisaaVarastoon(7);
+        
+        varasto.otaVarastosta(8);
+        
+        // varastosta ei voi ottaa enempää, kuin siellä on
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void lisataanNegatiivinenLuku() {
+        varasto.lisaaVarastoon(4);
+        varasto.lisaaVarastoon(-2);
+        
+        // varastoon ei voi lisätä negatiivista lukua
+        assertEquals(4, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void otetaanNegatiivinenLuku() {
+        varasto.lisaaVarastoon(4);
+        varasto.otaVarastosta(-2);
+        
+        // varastoon ei voi ottaa negatiivista lukua
+        assertEquals(4, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
     public void konstr() {
         varasto = new Varasto(-1);
         varasto = new Varasto(0);
